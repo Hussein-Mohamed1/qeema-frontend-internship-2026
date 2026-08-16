@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>calc</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="calc">
+      <div class="top-row">
+        <div class="logo">calc</div>
+        <div class="theme-control">
+          <div class="theme-label-row">
+            <div class="theme-numbers">
+              <span>1</span><span>2</span><span>3</span>
+            </div>
+            <div class="theme-label">THEME</div>
+          </div>
+          <div class="toggle-track">
+            <div class="toggle-dot"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="display">
+        <div class="display-value" id="display">0</div>
+      </div>
+
+      <div class="keypad">
+        <div class="keys">
+          <button class="key" data-val="7">7</button>
+          <button class="key" data-val="8">8</button>
+          <button class="key" data-val="9">9</button>
+          <button class="key del" id="del">DEL</button>
+
+          <button class="key" data-val="4">4</button>
+          <button class="key" data-val="5">5</button>
+          <button class="key" data-val="6">6</button>
+          <button class="key op" data-val="+">+</button>
+
+          <button class="key" data-val="1">1</button>
+          <button class="key" data-val="2">2</button>
+          <button class="key" data-val="3">3</button>
+          <button class="key op" data-val="-">-</button>
+
+          <button class="key" data-val=".">.</button>
+          <button class="key" data-val="0">0</button>
+          <button class="key op" data-val="/">/</button>
+          <button class="key op" data-val="*">x</button>
+        </div>
+
+        <div class="bottom-row">
+          <button class="btn-wide reset" id="reset">RESET</button>
+          <button class="btn-wide equals" id="equals">=</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="calculator.js"></script>
+  </body>
+</html>

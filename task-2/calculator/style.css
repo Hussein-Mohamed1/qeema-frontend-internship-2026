@@ -1,0 +1,256 @@
+:root {
+  --bg: #3e4768;
+  --display-bg: #1b2036;
+  --key-bg: #eee5d3;
+  --key-shadow: #cbb98f;
+  --key-text: #2c2c40;
+  --accent-blue: #6b76a8;
+  --accent-blue-shadow: #4d5786;
+  --accent-red: #d6493a;
+  --accent-red-shadow: #a83326;
+  --text-light: #f4f1ea;
+  --toggle-track: #262c46;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Arial Rounded MT Bold", "Helvetica Neue", Arial, sans-serif;
+  padding: 24px;
+}
+
+.calc {
+  width: 100%;
+  max-width: 375px;
+}
+
+.top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.logo {
+  color: var(--text-light);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.theme-control {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.theme-numbers {
+  display: flex;
+  gap: 10px;
+  color: var(--text-light);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.theme-label-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.theme-label {
+  color: var(--text-light);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.toggle-track {
+  width: 62px;
+  height: 26px;
+  background: var(--toggle-track);
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+}
+
+.toggle-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent-red);
+}
+
+.display {
+  background: var(--display-bg);
+  border-radius: 14px;
+  padding: 24px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  min-height: 88px;
+}
+
+.display-value {
+  color: var(--text-light);
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  overflow-x: auto;
+  white-space: nowrap;
+  text-align: right;
+  width: 100%;
+  scrollbar-width: none;
+}
+.display-value::-webkit-scrollbar {
+  display: none;
+}
+
+.keypad {
+  background: var(--bg);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.key {
+  background: var(--key-bg);
+  color: var(--key-text);
+  font-size: 22px;
+  font-weight: 700;
+  border-radius: 12px;
+  aspect-ratio: 1 / 1;
+  box-shadow: 0 3px 0 var(--key-shadow);
+  transition:
+    transform 0.05s ease,
+    box-shadow 0.05s ease;
+}
+
+.key:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--key-shadow);
+}
+
+.key.op {
+  background: var(--key-bg);
+}
+
+.key.del {
+  background: var(--accent-blue);
+  color: var(--text-light);
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 3px 0 var(--accent-blue-shadow);
+}
+.key.del:active {
+  box-shadow: 0 1px 0 var(--accent-blue-shadow);
+}
+
+.bottom-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.btn-wide {
+  height: 56px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.reset {
+  background: var(--accent-blue);
+  color: var(--text-light);
+  box-shadow: 0 3px 0 var(--accent-blue-shadow);
+}
+.reset:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--accent-blue-shadow);
+}
+
+.equals {
+  background: var(--accent-red);
+  color: var(--text-light);
+  font-size: 22px;
+  box-shadow: 0 3px 0 var(--accent-red-shadow);
+}
+.equals:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--accent-red-shadow);
+}
+
+/* Desktop / web layout adjustments */
+@media (min-width: 640px) {
+  .calc {
+    max-width: 540px;
+  }
+  .logo {
+    font-size: 34px;
+  }
+  .display {
+    padding: 34px 30px;
+    min-height: 112px;
+  }
+  .display-value {
+    font-size: 56px;
+  }
+  .keypad {
+    padding: 24px;
+  }
+  .keys {
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .key {
+    font-size: 28px;
+    border-radius: 14px;
+  }
+  .key.del {
+    font-size: 18px;
+  }
+  .bottom-row {
+    gap: 16px;
+  }
+  .btn-wide {
+    height: 64px;
+    font-size: 18px;
+  }
+  .equals {
+    font-size: 26px;
+  }
+}
